@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-教程</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <style>
+        .aa{
+            color: red;
+        }
+        .bb{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<!--compute:执行方法不用加括号 方法被调用时如果message值不改变的话不需要再次执行函数二回直接获取到原来的值 存在缓存
+    methods:执行方法时需要加上括号 而方法被调用时都会执行此方法 不存在缓存-->
+    <div id="example">
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        <!--<p>Computed reversed message: "{{ change() }}"</p>-->
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        <p>{{now1}}</p>
+        <p :class="{aa:a, bb:b}">hehhehe</p>
+        <p :class="classObject">hehhehe</p>
+        <h1 v-if="ok">Yes</h1>
+        <h1 v-else>No</h1>
+        <div v-if="Math.random() > 0.5">
+            Sorry
+        </div>
+        <div v-else>
+            Not sorry
+        </div>
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+        <h1 v-show="ok">Hello!</h1>
+        <ul>
+            <li v-for="(item,index) in items">
+                {{message}} - {{index}} - {{ item.message }}
+            </li>
+        </ul>
+        <ul>
+            <template v-for="item in items">
+                <li>{{ item.message }}</li>
+                <li class="aa"></li>
+            </template>
+        </ul>
+        <ul>
+            <li v-for="value in object">
+                {{value}}
+            </li>
+        </ul>
+        <div v-for="(value,key) in object">
+            {{key}}:{{value}}
+        </div>
+        <div>
+            <span v-for="n in 10">{{ n }} </span>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#example',
+            data: {
+                message: 'Hello',
+                a:true,
+                b:true,
+                classObject:{
+                    aa:true,
+                    bb:true
+                },
+                type:"V",
+                items:[
+                    {message:"he"},
+                    {message:"hehe"},
+                    {message:"hehehe"},
+                    {message:"hehehehe"},
+                    {message:"hehehehehe"}
+                ],
+                object:{
+                    ka:"kaka",
+                    ku:"kuku",
+                    ke:"keke",
+                    kg:"kgkg"
+                }
+            },
+            computed: {
+                // a computed getter
+                reversedMessage: function () {
+                    // `this` points to the vm instance
+                    return this.message.split('').reverse().join().replace(/,/g, "");
+                },
+                now1:function () {
+                    return Date.now()
+                },
+                ok:function () {
+                    return false
+                }
+            }
+           /* ,
+            methods:{
+                reversedMessage:function () {
+                    return this.message.split('').reverse().join('');
+                },
+                change:function () {
+                    this.message = "
+            }*/
+        });
+    </script>
+</body>
+</html>

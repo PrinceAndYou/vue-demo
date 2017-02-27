@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">{{ msg }}</div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        var data = {
+            msg:"中国发射的第一颗人造卫星"
+        }
+        /*data.msg = '北京居委会的大妈在跳广场舞'
+        document.getElementById('app').innerHTML = data.msg;
+        $("#app").html(data.msg);*/
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"北京居委会的大妈在跳广场舞"
+            }
+        })
+    </script>
+</body>
+</html>

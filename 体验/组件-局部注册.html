@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件-局部注册</title>
+</head>
+<body>
+<div id="box">
+    <my-component></my-component>
+    <my-first></my-first>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    var Child = {
+        template:'<div>A custom component!</div>'
+    };
+    var hehe = {
+        template:'<p>hahhahaha hhhehehe heiheihei</p>'
+    }
+    new Vue({
+        el:"#box",
+        components:{
+            'my-component':Child,
+            'my-first':hehe
+        }
+    })
+</script>
+</body>
+</html>

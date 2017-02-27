@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>-->
+    <title>Title</title>
+</head>
+<body>
+    <header>
+        <img src="" alt="">
+        <span></span>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <input type="file" multiple="multiple" value="按钮" onchange="readFile(this)">
+        <div id="box">
+
+        </div>
+    </header>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <img src="" alt="">
+    <script>
+        function readFile(the) {
+            for(var i=0;i<the.files.length;i++) {
+                var reader = new FileReader();
+                reader.readAsDataURL(the.files[i]);
+                reader.onload = function (e) {
+                    var data=this.result; //插入dom树
+                    var ele = "<img src='"+ data +"'/>";
+                    document.getElementById('#box').appendChild(ele);
+                    console.log(data);
+                };
+            }
+        }
+    </script>
+</body>
+</html>

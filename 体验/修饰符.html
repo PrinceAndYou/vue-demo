@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <input v-model.lazy="msg"  >
+        <p>{{ msg }}</p>
+        <button @click="lazy()">hehe</button>
+        <input v-model.number="age" type="number">
+        <input v-model.trim="msg">
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#box",
+            data:{
+                msg:"adda",
+                age:'aaa'
+            },
+            methods:{
+                lazy:function () {
+                    return this.msg = "hehe"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

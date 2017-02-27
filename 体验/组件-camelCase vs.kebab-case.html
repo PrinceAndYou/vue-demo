@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件-camelCase vs. kebab-case</title>
+</head>
+<body>
+<!--当使用非字符串模版时，prop的名字形式会从 camelCase 转为 kebab-case（短横线隔开）-->
+<div id="box">
+    <child my-message="Hello!"></child>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component('child',{
+        props:['myMessage'],
+        template:'<span>{{ myMessage }}</span>'
+    })
+    new Vue({
+        el:"#box",
+        data:{
+
+        }
+    })
+</script>
+</body>
+</html>

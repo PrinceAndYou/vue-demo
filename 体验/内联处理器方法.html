@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <button @click="say('Hi')">say Hi</button>
+        <button @click="say('Hello')">say Hello</button>
+        <button @="'Form cannot be submitted yet.',$event"></button>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#box",
+            data:{
+
+            },
+            methods:{
+                say:function (message) {
+                    alert(message);
+                },
+                warn:function (message,event) {
+                    if(event)event.preventDefault()
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <input type="text" @keydown="show($event)"/>
+    <input type="text" @keydown.13="show2()"/>
+    <input type="text" @keydown.enter="show3()"/>
+    <input type="text" @keydown.up="show4()"/>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#box",
+        data:{
+            msg:"hehe"
+        },
+        methods:{
+            show:function (ev) {
+                alert(ev.keyCode);
+            },
+            show2:function () {
+                alert("你回车了");
+            },
+            show3:function () {
+                alert("你enter了");
+            },
+            show4:function () {
+                alert("你up了");
+            }
+        }
+    })
+</script>
+</body>
+</html>

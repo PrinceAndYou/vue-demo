@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <!--<example initial-counter="counter"></example>-->
+        <example size="  NJKNKJ  123  123   "></example>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('example',{
+            /*props:{
+                // 基础类型检测 （`null` 意思是任何类型都可以）
+                propA: Number,
+                // 多种类型
+                propB: [String, Number],
+                propC:{
+                    type:String,
+                    required:true
+                },
+                propD:{
+                    type:Number,
+                    default:100
+                },
+                propE:{
+                    type:Object,
+                    default:function () {
+                        return {message:'hello'}
+                    }
+                },
+                propF:{
+                    validator:function (value) {
+                        return value > 10
+                    }
+                }
+            }*/
+            /*props:['initialCounter'],
+            data:function () {
+                return { counter:this.initialCounter }
+            },*/
+            props:['size'],
+            computed:{
+                normalizedSize:function () {
+                    return this.size.trim().toLowerCase()
+                }
+            },
+            template:'<span>{{ normalizedSize }}</span>'
+        });
+        new Vue({
+            el:'#box',
+            data:{
+
+            }
+        })
+    </script>
+</body>
+</html>

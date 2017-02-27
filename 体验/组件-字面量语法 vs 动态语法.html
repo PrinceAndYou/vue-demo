@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件-字面量语法 vs 动态语法</title>
+</head>
+<body>
+    <div id="box">
+        <comp some-prop="1"></comp>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('comp',{
+            props:['someProp'],
+            template:'<span>{{ someProp }}</span>'
+        })
+        new Vue({
+            el:'#box'
+        })
+    </script>
+</body>
+</html>

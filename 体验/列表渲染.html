@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <li v-for="n in even(numbers)">{{ n }}</li>
+    <button @click="counter += 1">add</button>
+    <p>这个按钮被点击了{{ counter }}次</p>
+</div>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            numbers:[1, 2, 3, 4, 5],
+            counter:0
+        },
+        methods:{
+            even:function (numbers) {
+                return numbers.filter(function (number) {
+                    return number % 2 === 0
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

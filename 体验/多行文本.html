@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <span>Multiline message is:</span>
+        <p :style="whiteSpace">{{ message }}</p>
+        <br/>
+        <textarea v-model="message" placeholder="add multiple lines"></textarea>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#box",
+            data:{
+                whiteSpace:{
+                    whiteSpace:"pre"
+                },
+                message:""
+            }
+        })
+    </script>
+</body>
+</html>
